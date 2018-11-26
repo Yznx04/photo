@@ -1,0 +1,8 @@
+#bk{
+    float: left;
+    border: red solid 2px;
+    outline: chartreuse dotted thick;
+}
+#input{
+    clear: left;
+}

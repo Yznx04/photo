@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11</title>
+    <link rel="stylesheet" href="{% static 'css/box.css' %}" type="text/css" media="all">
+</head>
+<body background="{% static 'image/bg.jpg' %}">
+<p align="center">我的相册</p>
+<hr>
+    {% for foo in img_list %}
+        <div id="bk">
+            <img src="{{ foo }}" width="200" height="180"><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url 'delete'  foo%}" >删除</a>|
+            <a href="{% url 'dl'  foo %}">下载</a></p>
+        </div>
+    {% endfor %}
+<hr id="input">
+    <div id="input">
+       <form method="POST" enctype="multipart/form-data" action="{% url 'upload' %}">
+        {% csrf_token %}
+        <input type="file" name="images" >
+        <input type="submit">
+    </form>
+    </div>
+
+
+</body>
+</html>
